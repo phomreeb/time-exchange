@@ -18,10 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 # from django.views.generic.base import RedirectView
 
-# favicon_view = RedirectView.as_view(url='/static/bomb.svg', permanent=True)
+# favicon_view = RedirectView.as_view(url="/static/bomb.svg", permanent=True)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('favicon.ico', favicon_view),
+    path("admin/", admin.site.urls),
+    # path("favicon.ico", favicon_view),
     path("", include("apps.accounts.urls")),
 ]
