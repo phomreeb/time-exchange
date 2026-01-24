@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from .conf import settings
+# import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z1soqb6yc9=x6q9ohexx-jd#pa*wcz0_!83ut%zq8gu$16y6x='
+SECRET_KEY = settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = settings.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = settings.ALLOWED_HOSTS
  
 # Application definition
 
@@ -79,8 +81,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': settings.POSTGRES_DB,
+        'USER': settings.POSTGRES_USER,
+        'PASSWORD': settings.POSTGRES_PASSWORD,
+        'HOST': settings.POSTGRES_HOST,
+        'PORT': settings.POSTGRES_PORT,
     }
 }
  
@@ -127,3 +133,14 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+# Caching (Redis)
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": settings.REDIS_URL,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}

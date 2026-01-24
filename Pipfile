@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+psycopg2-binary = "*"
+django-redis = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 djlint = "*"
