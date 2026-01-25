@@ -8,6 +8,7 @@ django = "*"
 psycopg2-binary = "*"
 django-redis = "*"
 pydantic-settings = "*"
+django-user-agents = "*"
 
 [dev-packages]
 djlint = "*"

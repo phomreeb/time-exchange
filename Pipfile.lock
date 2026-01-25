@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2ad8eb54364d7218e181df9ec4f73c092a91d19f18615fce166a216ef70189f8"
+            "sha256": "6b8413cada024f197daaa04de9cfe943820b362968c4aa8e4d0696c0d54b1fba"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -49,6 +49,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==6.0.0"
+        },
+        "django-user-agents": {
+            "hashes": [
+                "sha256:cd9d9f7158b23c5237b2dacb0bc4fffdf77fefe1d2633b5814d3874288ebdb5d",
+                "sha256:cda8ae2146cee30e6867a07943f56ecc570b4391d725ab5309901a8b3e4a3514"
+            ],
+            "index": "pypi",
+            "version": "==0.4.0"
         },
         "psycopg2-binary": {
             "hashes": [
@@ -307,6 +315,28 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==0.4.2"
+        },
+        "ua-parser": {
+            "hashes": [
+                "sha256:b059f2cb0935addea7e551251cbbf42e9a8872f86134163bc1a4f79e0945ffea",
+                "sha256:f9d92bf19d4329019cef91707aecc23c6d65143ad7e29a233f0580fb0d15547d"
+            ],
+            "markers": "python_version >= '3.9'",
+            "version": "==1.0.1"
+        },
+        "ua-parser-builtins": {
+            "hashes": [
+                "sha256:f5dc93b0f53724dcd5c3eb79edb0aea281cb304a2c02a9436cbeb8cfb8bc4ad1"
+            ],
+            "markers": "python_version >= '3.10'",
+            "version": "==202601"
+        },
+        "user-agents": {
+            "hashes": [
+                "sha256:a98c4dc72ecbc64812c4534108806fb0a0b3a11ec3fd1eafe807cee5b0a942e7",
+                "sha256:d36d25178db65308d1458c5fa4ab39c9b2619377010130329f3955e7626ead26"
+            ],
+            "version": "==2.2.0"
         }
     },
     "develop": {
