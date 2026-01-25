@@ -5,8 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
+psycopg2-binary = "*"
+django-redis = "*"
+pydantic-settings = "*"
+django-user-agents = "*"
 
 [dev-packages]
+djlint = "*"
 
 [requires]
 python_version = "3.11"

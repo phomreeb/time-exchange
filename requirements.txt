@@ -1,0 +1,18 @@
+-i https://pypi.org/simple
+annotated-types==0.7.0; python_version >= '3.8'
+asgiref==3.11.0; python_version >= '3.9'
+django==5.2.10; python_version >= '3.10'
+django-redis==6.0.0; python_version >= '3.9'
+django-user-agents==0.4.0
+psycopg2-binary==2.9.11; python_version >= '3.9'
+pydantic==2.12.5; python_version >= '3.9'
+pydantic-core==2.41.5; python_version >= '3.9'
+pydantic-settings==2.12.0; python_version >= '3.10'
+python-dotenv==1.2.1; python_version >= '3.9'
+redis==7.1.0; python_version >= '3.10'
+sqlparse==0.5.5; python_version >= '3.8'
+typing-extensions==4.15.0; python_version >= '3.9'
+typing-inspection==0.4.2; python_version >= '3.9'
+ua-parser==1.0.1; python_version >= '3.9'
+ua-parser-builtins==202601; python_version >= '3.10'
+user-agents==2.2.0
