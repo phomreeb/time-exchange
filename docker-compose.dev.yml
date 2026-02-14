@@ -1,35 +1,52 @@
 name: time-exchange
 
 services:
-
-  redis:
-    image: redis:alpine
-    restart: always
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - app-network
-
-  db:
-    image: postgres:15-alpine
+  app:
+    build: .
+    container_name: time-exchange-app
     restart: always
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    ports:
-      - "5432:5432"
+      - POSTGRES_HOST=time-exchange-db
+      - REDIS_URL=redis://time-exchange-redis:6379/0
+      - ALLOWED_HOSTS=["stating.arisu.one", "time.arisu.one"]
+    depends_on:
+      - db
+      - redis
+    networks:
+      - stating-zone
+      - app-internal
+
+  redis:
+    image: redis:alpine
+    container_name: time-exchange-redis
+    restart: always
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-internal
+
+  db:
+    image: postgres:15-alpine
+    container_name: time-exchange-db
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - app-network
+      - app-internal
 
 volumes:
   redis_data:
   postgres_data:
 
 networks:
-  app-network:
+  stating-zone:
+    external: true
+  app-internal:
     driver: bridge
